@@ -1,0 +1,80 @@
+===============================
+ Indicators of Compromise (IOCs)
+ Suspicious / Malicious DLL
+ windows.storage.dll
+===============================
+
+========== FILE HASHES ==========
+SHA256:
+A2B0C3C0BE9F99AEEC4310739915DDF8D09463566DA5506FA30A0776DEF6770C
+
+MD5:
+9A10131F6F32EF5356304EF6B754A9E3
+
+SHA1:
+B18389B64F563BB7E6C2A6403C8277B9431E2EC8
+
+========== FILE METADATA ==========
+File Name: windows.storage.dll
+File Type: PE32+ DLL (x64)
+File Description: "Microsoft WinRT Storage API" (spoofed)
+Product Name: Microsoft® Windows® Operating System (spoofed)
+Company Name: Microsoft Corporation (spoofed)
+Original Filename: Windows.Storage.dll (spoofed)
+File Size: ~6.6 MB
+Timestamp: 2086-03-19 06:19:08 (invalid / tampered)
+File Path Observed:
+C:\Users\admin\AppData\Local\Temp\windows.storage.dll
+
+========== EXECUTION CHAIN ==========
+Parent Process:
+explorer.exe
+
+Execution via Signed Binary Proxy (LOLBIN):
+regsvr32.exe "C:\Users\admin\AppData\Local\Temp\windows.storage.dll"
+
+Technique:
+T1218.010 - Regsvr32 Proxy Execution  
+T1574.002 - DLL Hijacking  
+T1036 - Masquerading
+
+========== COMMAND LINES ==========
+regsvr32.exe "C:\Users\admin\AppData\Local\Temp\windows.storage.dll"
+
+========== REGISTRY ACTIVITY ==========
+(None observed)
+
+========== FILESYSTEM ACTIVITY ==========
+File loaded: windows.storage.dll (no additional file writes observed)
+
+========== NETWORK IOCs ==========
+(No malicious domains or C2 activity detected)
+Only Windows CRL/OCSP traffic was observed.
+
+========== BEHAVIORAL INDICATORS ==========
+- DLL Hijacking behavior detected
+- Executed via regsvr32 (T1218.010)
+- Masquerading as legitimate Microsoft DLL
+- Unsigned DLL claiming Microsoft metadata
+- Timestamp set far into the future (likely anti-forensics)
+- Loaded from Temp directory instead of System32
+- ANY.RUN verdict: MALICIOUS DLL hijacking
+
+========== TACTICS + TECHNIQUES ==========
+T1218.010 - Regsvr32 Execution  
+T1574.002 - DLL Search Order Hijacking  
+T1036 - Masquerading  
+T1082 - System Information Discovery (potential)  
+T1204 - User Execution (DLL registration)  
+
+========== RECOMMENDED ACTIONS ==========
+- Quarantine file immediately
+- Review system for additional sideloaded DLLs
+- Check for persistence (Run keys, Services, COM hijacking)
+- Investigate for lateral movement attempts
+- Validate integrity of legitimate Windows.Storage.dll
+- Run endpoint AV/EDR sweep for related activity
+
+===============================
+ END OF IOC FILE
+===============================
