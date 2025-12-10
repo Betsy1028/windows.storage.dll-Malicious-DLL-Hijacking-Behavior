@@ -4,7 +4,7 @@
 **Analysis Date:** Nov 22, 2025  
 **Sample Type:** DLL (PE32+ x64)  
 **Verdict:** Malicious activity (DLL hijacking behavior)  
-**Report:** [PDF](./artifacts/windows.storage_ANYRUN_Report.pdf)
+**Report:** [PDF](Malware analysis windows.storage.dll Malicious activity _ ANY.RUN - Malware Sandbox Online.pdf)
 
 ---
 
@@ -112,7 +112,7 @@ This is typical for **DLL loaders / stage-0 components**.
 ## 📁 5. Evidence & Artifacts
 
 - **Full ANY.RUN Report:**  
-  → [PDF](./artifacts/windows.storage_ANYRUN_Report.pdf)
+  → [PDF](./artifacts Malware analysis windows.storage.dll Malicious activity _ ANY.RUN - Malware Sandbox Online.pdf
 
 - **Indicators of Compromise (IOCs):**  
   → `/iocs/windows_storage_iocs.txt`
