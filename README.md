@@ -114,9 +114,6 @@ This is typical for **DLL loaders / stage-0 components**.
 - **Full ANY.RUN Report:**  
   → [PDF](./artifacts/windows.storage_ANYRUN_Report.pdf)
 
-- **Screenshots & process tree:**  
-  → `/artifacts/screenshots/`
-
 - **Indicators of Compromise (IOCs):**  
   → `/iocs/windows_storage_iocs.txt`
 
